@@ -1,4 +1,4 @@
-import 'package:diacare360/pages/dashboard.dart';
+import 'package:diacare360/navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class DiaCare360 extends StatelessWidget {
         primaryColor: Color(0xFF242424),
         scaffoldBackgroundColor: Color(0xFFF2F0EF),
       ),
-      home: DashBoard(),
+      home: Navigation(),
     );
   }
 }
