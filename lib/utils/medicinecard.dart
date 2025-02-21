@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class MedicineCard extends StatelessWidget {
   final String title;
@@ -58,12 +59,29 @@ class MedicineCard extends StatelessWidget {
                         fontSize: 9.5,
                       ),
                     ),
+                    SizedBox(height: 5),
+                    FlutterSwitch(
+                      value: false,
+                      onToggle: (value) {
+                        value = !value;
+                      },
+                      toggleSize: 10,
+                      activeColor: Color(0XFF2F2F2F),
+                      inactiveToggleColor: Color(0XFF2F2F2F),
+                      activeToggleColor: Color.fromARGB(255, 255, 255, 255),
+                      inactiveColor: Color(0XffAEAEAE),
+                      borderRadius: 20,
+                      padding: 1.5,
+                      width: 25,
+                      height: 13,
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-          SizedBox(height: 23),
+
+          SizedBox(height: 6),
           Divider(color: Color.fromARGB(255, 249, 249, 249), thickness: 0.1),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
