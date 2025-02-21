@@ -12,7 +12,10 @@ class DashBoard extends StatelessWidget {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color(0xff0F0F0F),
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(27), topRight: Radius.circular(27)),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(27),
+            topRight: Radius.circular(27),
+          ),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.only(
@@ -26,38 +29,23 @@ class DashBoard extends StatelessWidget {
             showUnselectedLabels: false,
             items: [
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/navbar/health.png',
-                  width: 16,
-                ),
+                icon: Image.asset('assets/icons/navbar/home_selected.png', width: 16),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/navbar/health.png',
-                  width: 16,
-                ),
-                label: '', 
-              ),
-              BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/navbar/health.png',
-                  width: 16,
-                ),
+                icon: Image.asset('assets/icons/navbar/health.png', width: 16),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/navbar/health.png',
-                  width: 16,
-                ),
+                icon: Image.asset('assets/icons/navbar/diet.png', width: 16),
                 label: '',
               ),
               BottomNavigationBarItem(
-                icon: Image.asset(
-                  'assets/icons/navbar/health.png',
-                  width: 16,
-                ),
+                icon: Image.asset('assets/icons/navbar/medicine.png', width: 16),
+                label: '',
+              ),
+              BottomNavigationBarItem(
+                icon: Image.asset('assets/icons/navbar/settings.png', width: 16),
                 label: '',
               ),
             ],
@@ -186,6 +174,48 @@ class DashBoard extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                child: NewSegment(title: 'My health'),
+              ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+              sliver: SliverGrid(
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFECB3B3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          top: 10,
+                          left: 10,
+                          child: CircleAvatar(
+                            backgroundColor: Color(0xffDEDEDE),
+                            radius: 12,
+                            child: Image.asset(
+                              'assets/icons/announcement.png',
+                              width: 12,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }, childCount: 4),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  childAspectRatio: 1.38,
+                ),
               ),
             ),
           ],
