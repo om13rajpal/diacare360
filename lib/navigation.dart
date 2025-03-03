@@ -1,3 +1,4 @@
+import 'package:diacare360/screens/medicine.dart';
 import 'package:diacare360/screens/settings.dart';
 import 'package:diacare360/screens/vitals.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class _NavigationState extends State<Navigation> {
 
   final List<Widget> _currentPage = [
     Vitals(),
-    Settings(),
+    Medicine(),
     Settings(),
     Settings(),
     Settings(),
