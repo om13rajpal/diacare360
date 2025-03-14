@@ -1,3 +1,4 @@
+import 'package:diacare360/screens/diet.dart';
 import 'package:diacare360/screens/medicine.dart';
 import 'package:diacare360/screens/settings.dart';
 import 'package:diacare360/screens/vitals.dart';
@@ -16,7 +17,7 @@ class _NavigationState extends State<Navigation> {
   final List<Widget> _currentPage = [
     Vitals(),
     Medicine(),
-    Settings(),
+    Diet(),
     Settings(),
     Settings(),
   ];
