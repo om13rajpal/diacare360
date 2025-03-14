@@ -49,6 +49,7 @@ class Settings extends StatelessWidget {
                           fontSize: 28,
                           fontWeight: FontWeight.w600,
                           color: Color(0xff242424),
+                          height: 1.2,
                         ),
                       ),
                     ],
@@ -92,7 +93,7 @@ class Settings extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 6),
                           child: CircleAvatar(
                             radius: 8,
-                            backgroundColor: Colors.amber,
+                            backgroundColor: Colors.black12,
                           ),
                         );
                       },
@@ -112,21 +113,21 @@ class Settings extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    spacing: 10,
+                    spacing: 7,
                     children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: 50,
+                            width: 84,
                             height: 63.5,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
                               color: Color(0xffc4e4e1),
                             ),
                           ),
-                          SizedBox(height: 10),
                           Container(
-                            width: 50,
+                            width: 84,
                             height: 63.5,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(12),
@@ -136,14 +137,14 @@ class Settings extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        width: 75,
+                        width: 67,
                         decoration: BoxDecoration(
                           color: Color(0xff2F2F2F),
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
                       Container(
-                        width: 120,
+                        width: 105,
                         decoration: BoxDecoration(
                           color: Color(0xffC4E4E1),
                           borderRadius: BorderRadius.circular(12),
@@ -167,25 +168,47 @@ class Settings extends StatelessWidget {
               child: Column(
                 children: List.generate(2, (index) {
                   return Container(
-                    height: 40,
-                    margin: EdgeInsets.only(bottom: 6),
+                    height: 45,
+                    margin: EdgeInsets.only(bottom: 7),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
                       color: Color(0xff2F2F2F),
                     ),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Column(
-                          children: [Text('Blood Glucose'), Text('Meter')],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [Text('Blood Glucose', style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFFFFFFFF)
+                          ),), Text('Meter', style: TextStyle(
+                            fontSize: 9,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF9F9F9F)
+                          ),)],
                         ),
                         Container(
-                          height: 10,
-                          width: 50,
+                          height: 16,
+                          width: 56,
                           decoration: BoxDecoration(
                             color: Color(0xff285531),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: Text('Connected'),
+                          child: Center(
+                            child: Text(
+                              'Connected',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 7.5,
+                                color: Color(0xFF98B995),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -221,6 +244,15 @@ class Settings extends StatelessWidget {
                             border: Border(
                               bottom: BorderSide(color: Color(0xff464646)),
                             ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              IconButton(onPressed: () {
+                                
+                              }, icon: Image.asset("assets/icons/settings_arrow.png", width: 15,))
+                            ],
                           ),
                         ),
                       ),
