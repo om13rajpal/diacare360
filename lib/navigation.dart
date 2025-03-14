@@ -23,11 +23,19 @@ class _NavigationState extends State<Navigation> {
   ];
 
   final List<String> _icons = [
-    'assets/icons/navbar/home_selected.png',
+    'assets/icons/navbar/home.png',
     'assets/icons/navbar/health.png',
     'assets/icons/navbar/diet.png',
     'assets/icons/navbar/medicine.png',
     'assets/icons/navbar/settings.png',
+  ];
+
+  final List<String> _selectedIcons = [
+    'assets/icons/navbar/home_selected.png',
+    'assets/icons/navbar/home_selected.png',
+    'assets/icons/navbar/home_selected.png',
+    'assets/icons/navbar/home_selected.png',
+    'assets/icons/navbar/home_selected.png',
   ];
 
   void _onItemTapped(int index) => setState(() {
@@ -56,18 +64,31 @@ class _NavigationState extends State<Navigation> {
           topLeft: Radius.circular(27),
           topRight: Radius.circular(27),
         ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          backgroundColor: Color(0xff0F0F0F),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: List.generate(
-            _icons.length,
-            (index) => BottomNavigationBarItem(
-              icon: Image.asset(_icons[index], width: 16, cacheWidth: 16),
-              label: '',
+        child: Theme(
+          data: Theme.of(context).copyWith(
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            backgroundColor: Color(0xff0F0F0F),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: List.generate(
+              _icons.length,
+              (index) => BottomNavigationBarItem(
+                icon: Image.asset(
+                  (index == _selectedIndex)
+                      ? _selectedIcons[index]
+                      : _icons[index],
+                  key: ValueKey(_selectedIndex),
+                  width: 16,
+                  cacheWidth: 16,
+                ),
+                label: '',
+              ),
             ),
           ),
         ),
