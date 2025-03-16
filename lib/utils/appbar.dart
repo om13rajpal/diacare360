@@ -7,7 +7,8 @@ class MyAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Colors.transparent,
+      foregroundColor: Colors.transparent,
       floating: true,
       centerTitle: true,
       title: Text(title),
