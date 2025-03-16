@@ -1,3 +1,4 @@
+import 'package:diacare360/screens/graph.dart';
 import 'package:diacare360/utils/appbar.dart';
 import 'package:diacare360/utils/medicinecard.dart';
 import 'package:diacare360/utils/newsegment.dart';
@@ -196,51 +197,59 @@ class _VitalsState extends State<Vitals> {
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     children: [
-                      Container(
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFF7979),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Stack(
-                          children: [
-                            Positioned(
-                              top: 10,
-                              left: 10,
-                              child: CircleAvatar(
-                                backgroundColor: Color(0xffDEDEDE),
-                                radius: 12,
-                                child: Image.asset(gridIcons[0], width: 12),
-                              ),
-                            ),
-                            grid[0],
-                            Positioned(
-                              bottom: 5,
-                              left: 5,
-                              child: RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '102/80',
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700,
-                                        color: Color(0xff242424),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: ' mmHg',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xff242424),
-                                      ),
-                                    ),
-                                  ],
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Graph()),
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFFF7979),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                top: 10,
+                                left: 10,
+                                child: CircleAvatar(
+                                  backgroundColor: Color(0xffDEDEDE),
+                                  radius: 12,
+                                  child: Image.asset(gridIcons[0], width: 12),
                                 ),
                               ),
-                            ),
-                          ],
+                              grid[0],
+                              Positioned(
+                                bottom: 5,
+                                left: 5,
+                                child: RichText(
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: '102/80',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700,
+                                          color: Color(0xff242424),
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: ' mmHg',
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xff242424),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Container(
