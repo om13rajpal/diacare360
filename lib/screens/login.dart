@@ -1,7 +1,16 @@
+import 'package:diacare360/navigation.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +43,8 @@ class Login extends StatelessWidget {
                         Text(
                           "Email",
                           style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
                             color: Color(0xFF242424),
                           ),
                         ),
@@ -43,6 +52,7 @@ class Login extends StatelessWidget {
                         SizedBox(
                           height: 45,
                           child: TextField(
+                            controller: emailController,
                             style: TextStyle(color: Colors.white, fontSize: 12),
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
@@ -63,15 +73,15 @@ class Login extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Password",
                           style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
                             color: Color(0xFF242424),
                           ),
                         ),
@@ -79,6 +89,7 @@ class Login extends StatelessWidget {
                         SizedBox(
                           height: 45,
                           child: TextField(
+                            controller: passwordController,
                             style: TextStyle(color: Colors.white),
                             obscureText: true,
                             decoration: InputDecoration(
@@ -103,7 +114,14 @@ class Login extends StatelessWidget {
                           width: 85,
                           height: 34,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Navigation(),
+                                ),
+                              );
+                            },
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
                                 Color(0xFF242424),
@@ -122,6 +140,29 @@ class Login extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
+                          ),
+                        ),
+                        SizedBox(height: 5),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "Don't have an account? ",
+                                style: TextStyle(
+                                  color: Color(0xFF242424).withAlpha(200),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Sign Up",
+                                style: TextStyle(
+                                  color: Color(0Xff242424),
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

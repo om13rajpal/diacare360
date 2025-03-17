@@ -11,7 +11,11 @@ class Settings extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            child: Image.asset("assets/background.png", fit: BoxFit.cover, width: MediaQuery.of(context).size.width,),
+            child: Image.asset(
+              "assets/background.png",
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           CustomScrollView(
             slivers: [
@@ -22,7 +26,10 @@ class Settings extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CircleAvatar(radius: 27, backgroundColor: Color(0xffD9D9D9)),
+                      CircleAvatar(
+                        radius: 27,
+                        backgroundColor: Color(0xffD9D9D9),
+                      ),
                       SizedBox(width: 25),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +91,15 @@ class Settings extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      CircleAvatar(radius: 12, backgroundColor: Color(0xffCECECE)),
+                      CircleAvatar(
+                        radius: 12,
+                        backgroundColor: Color(0xffCECECE),
+                        child: Icon(
+                          Icons.badge,
+                          color: Color(0xFF303030),
+                          size: 13,
+                        ),
+                      ),
                       SizedBox(width: 5),
                       SizedBox(
                         height: 18,
@@ -130,6 +145,26 @@ class Settings extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(12),
                                   color: Color(0xffc4e4e1),
                                 ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 6,
+                                    vertical: 5,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Blood group",
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF242424),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                               Container(
                                 width: 84,
@@ -137,6 +172,26 @@ class Settings extends StatelessWidget {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   color: Color(0xffc4e4e1),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 6,
+                                    vertical: 5,
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "HbA1c",
+                                        style: TextStyle(
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF242424),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -153,6 +208,25 @@ class Settings extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: Color(0xffC4E4E1),
                               borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                                vertical: 5,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "BMI",
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF242424),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -260,9 +334,18 @@ class Settings extends StatelessWidget {
                                 ),
                               ),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
+                                  Text(
+                                    "Edit profile",
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color(0xFFE2E2E2),
+                                    ),
+                                  ),
                                   IconButton(
                                     onPressed: () {},
                                     icon: Image.asset(

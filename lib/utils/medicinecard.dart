@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
-class MedicineCard extends StatelessWidget {
+class MedicineCard extends StatefulWidget {
   final String title;
   final String time;
   const MedicineCard({super.key, required this.title, required this.time});
+
+  @override
+  State<MedicineCard> createState() => _MedicineCardState();
+}
+
+class _MedicineCardState extends State<MedicineCard> {
+  bool toggleValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +50,7 @@ class MedicineCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      widget.title,
                       style: TextStyle(
                         color: Color.fromARGB(216, 249, 249, 249),
                         fontWeight: FontWeight.w500,
@@ -61,12 +68,14 @@ class MedicineCard extends StatelessWidget {
                     ),
                     SizedBox(height: 5),
                     FlutterSwitch(
-                      value: false,
+                      value: toggleValue,
                       onToggle: (value) {
-                        value = !value;
+                        setState(() {
+                          toggleValue = value;
+                        });
                       },
                       toggleSize: 10,
-                      activeColor: Color(0XFF2F2F2F),
+                      activeColor: Color(0XFF606060),
                       inactiveToggleColor: Color(0XFF2F2F2F),
                       activeToggleColor: Color.fromARGB(255, 255, 255, 255),
                       inactiveColor: Color(0XffAEAEAE),
@@ -104,7 +113,7 @@ class MedicineCard extends StatelessWidget {
                   ),
                   SizedBox(width: 5),
                   Text(
-                    time,
+                    widget.time,
                     style: TextStyle(
                       fontSize: 9.5,
                       fontWeight: FontWeight.w400,

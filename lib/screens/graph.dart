@@ -11,7 +11,7 @@ class Graph extends StatelessWidget {
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
-            MyAppBar(title: 'Heart Rate'),
+            MyAppBar(title: 'Details'),
             SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -72,7 +72,12 @@ class Graph extends StatelessWidget {
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, top: 50, right: 10),
-                child: SizedBox(height: 230, child: LineChart(lineChartData())),
+                child: SizedBox(
+                  height: 230,
+                  child: LineChart(
+                    lineChartData(),
+                  ),
+                ),
               ),
             ),
             SliverToBoxAdapter(
@@ -119,7 +124,10 @@ class Graph extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 80,
-                      child: Container(width: 1, color: Color.fromARGB(255, 152, 152, 152)),
+                      child: Container(
+                        width: 1,
+                        color: Color.fromARGB(255, 152, 152, 152),
+                      ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -155,7 +163,10 @@ class Graph extends StatelessWidget {
                     ),
                     SizedBox(
                       height: 80,
-                      child: Container(width: 1, color: Color.fromARGB(255, 152, 152, 152)),
+                      child: Container(
+                        width: 1,
+                        color: Color.fromARGB(255, 152, 152, 152),
+                      ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -238,7 +249,42 @@ LineChartData lineChartData() {
         ),
       ),
     ),
-    lineTouchData: LineTouchData(enabled: true, handleBuiltInTouches: true),
+    lineTouchData: LineTouchData(
+      enabled: true,
+      touchTooltipData: LineTouchTooltipData(
+        getTooltipColor: (touchedSpot) => Colors.black26,
+        tooltipRoundedRadius: 12,
+      ),
+      getTouchedSpotIndicator: (barData, spotIndexes) {
+        return spotIndexes.map((index) {
+          return TouchedSpotIndicatorData(
+            FlLine(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0XFFFF7979).withAlpha(150),
+                  Color(0XFFFF7979).withAlpha(50),
+                ],
+              ),
+              strokeWidth: 10,
+            ),
+            FlDotData(
+              show: true,
+              getDotPainter: (spot, percent, barData, index) {
+                return FlDotCirclePainter(
+                  radius: 5,
+                  color: Color(0xFFE2E2E2),
+                  strokeWidth: 2.5,
+                  strokeColor: Color(0xFF242424),
+                );
+              },
+            ),
+          );
+        }).toList();
+      },
+    ),
+
     borderData: FlBorderData(show: false),
     minX: 0,
     maxX: 30,
@@ -246,8 +292,10 @@ LineChartData lineChartData() {
     maxY: 120,
     lineBarsData: [
       LineChartBarData(
+        isStrokeCapRound: true,
         dotData: FlDotData(show: false),
-        barWidth: 3,
+        barWidth: 2.5,
+        preventCurveOverShooting: true,
         color: Color(0xFF242424),
         spots: [
           FlSpot(0, 95),
