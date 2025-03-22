@@ -3,9 +3,16 @@ import 'package:diacare360/utils/medicinecard.dart';
 import 'package:diacare360/utils/newsegment.dart';
 import 'package:flutter/material.dart';
 
-class Medicine extends StatelessWidget {
+class Medicine extends StatefulWidget {
   const Medicine({super.key});
 
+  @override
+  State<Medicine> createState() => _MedicineState();
+}
+
+bool isExpanded = false;
+
+class _MedicineState extends State<Medicine> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -186,51 +193,25 @@ class Medicine extends StatelessWidget {
                   ),
                   child: Column(
                     children: List.generate(2, (index) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.only(bottom: 4),
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF303030),
-                          borderRadius: BorderRadius.circular(12),
+                      return ExpansionTile(
+                        title: Text('Dr. John Doe'),
+                        subtitle: Text('17.02.21'),
+                        onExpansionChanged:
+                            (value) => setState(() {
+                              isExpanded = value;
+                            }),
+                        trailing: Icon(
+                          isExpanded
+                              ? Icons.arrow_upward
+                              : Icons.arrow_downward,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Dr. Aprajita',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w500,
-                                      color: Color(0xFFFFFFFF),
-                                    ),
-                                  ),
-                                  SizedBox(height: 2),
-                                  Text(
-                                    '17.03.2025',
-                                    style: TextStyle(
-                                      fontSize: 9,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF9F9F9F),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.add,
-                                color: Color(0xFF9F9F9F),
-                                size: 15,
-                              ),
-                            ],
+                        children: [
+                          Image.asset(
+                            'assets/background.png',
+                            width: 100,
+                            height: 100,
                           ),
-                        ),
+                        ],
                       );
                     }),
                   ),
@@ -238,7 +219,11 @@ class Medicine extends StatelessWidget {
               ),
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    bottom: 20,
+                  ),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
@@ -257,7 +242,7 @@ class Medicine extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          "Login",
+                          "Upload",
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,

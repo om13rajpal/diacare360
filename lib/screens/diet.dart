@@ -12,7 +12,11 @@ class Diet extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            child: Image.asset("assets/background.png", fit: BoxFit.cover, width: MediaQuery.of(context).size.width,),
+            child: Image.asset(
+              "assets/background.png",
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+            ),
           ),
           CustomScrollView(
             slivers: [
@@ -22,7 +26,7 @@ class Diet extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         "Today's\nDiet",
@@ -35,7 +39,16 @@ class Diet extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          KeyValue(head: "Calories", value: "219", unit: 'Kcal'),
+                          KeyValue(
+                            head: "Calories",
+                            value: "712",
+                            unit: 'Kcal',
+                          ),
+                          KeyValue(
+                            head: "Calories taken",
+                            value: "219",
+                            unit: 'Kcal',
+                          ),
                           KeyValue(head: "Protein", value: "16", unit: 'grams'),
                           KeyValue(head: "Meals done", value: "2", unit: ''),
                         ],
@@ -77,12 +90,35 @@ class Diet extends StatelessWidget {
                     physics: BouncingScrollPhysics(),
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.only(left: 13),
-                        width: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Color(0xFFD9D9D9),
+                      return GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("Meal"),
+                                content: Text("Meal details"),
+
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text("Close"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
+                        child: Container(
+                          margin: EdgeInsets.only(left: 13),
+                          width: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Color(0xFFD9D9D9),
+                          ),
                         ),
                       );
                     },

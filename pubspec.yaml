@@ -37,6 +37,8 @@ dependencies:
   flutter_switch: ^0.3.2
   percent_indicator: ^4.2.4
   fl_chart: ^0.70.2
+  awesome_snackbar_content: ^0.1.5
+  side_sheet_material3: ^0.0.2
 
 dev_dependencies:
   flutter_test:

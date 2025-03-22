@@ -285,7 +285,7 @@ class _VitalsState extends State<Vitals> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: ' BPM',
+                                      text: ' mmol/mol',
                                       style: TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w500,
@@ -340,7 +340,7 @@ class _VitalsState extends State<Vitals> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: ' Hours',
+                                      text: ' HBA1C',
                                       style: TextStyle(
                                         fontSize: 10,
                                         fontWeight: FontWeight.w500,
@@ -371,44 +371,42 @@ class _VitalsState extends State<Vitals> {
                                 child: Image.asset(gridIcons[3], width: 12),
                               ),
                             ),
-                            Container(
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  left: 7,
-                                  right: 7,
-                                  top: 30,
-                                ),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    grid[3],
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "342",
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w700,
-                                            color: Color(0xff242424),
-                                          ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                left: 7,
+                                right: 7,
+                                top: 30,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  grid[3],
+                                  Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "342",
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700,
+                                          color: Color(0xff242424),
                                         ),
-                                        Text(
-                                          "Kcal",
-                                          style: TextStyle(
-                                            fontSize: 10,
-                                            height: 1,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color(0xff242424),
-                                          ),
+                                      ),
+                                      Text(
+                                        "Kcal",
+                                        style: TextStyle(
+                                          fontSize: 10,
+                                          height: 1,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xff242424),
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],

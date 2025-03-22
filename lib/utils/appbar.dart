@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:side_sheet_material3/side_sheet_material3.dart';
 
 class MyAppBar extends StatelessWidget {
   final String title;
@@ -10,6 +11,7 @@ class MyAppBar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.transparent,
       floating: true,
+      forceMaterialTransparency: true,
       centerTitle: true,
       title: Text(title),
       titleTextStyle: TextStyle(
@@ -23,7 +25,7 @@ class MyAppBar extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {
-            print('announcement');
+            showModalSideSheet(context, body: Text("announcements"), header: "Announcements", transitionDuration: Duration(milliseconds: 300));
           },
           icon: Image.asset(
             'assets/icons/announcement.png',
