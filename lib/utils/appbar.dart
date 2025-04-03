@@ -1,5 +1,6 @@
+import 'package:diacare360/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:side_sheet_material3/side_sheet_material3.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
 class MyAppBar extends StatelessWidget {
   final String title;
@@ -17,7 +18,7 @@ class MyAppBar extends StatelessWidget {
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
-        color: Color(0xff242424),
+        color: AppColors.secondary,
       ),
       elevation: 0,
       snap: true,
@@ -25,12 +26,12 @@ class MyAppBar extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () {
-            showModalSideSheet(context, body: Text("announcements"), header: "Announcements", transitionDuration: Duration(milliseconds: 300));
+            // showModalSideSheet(context, body: Text("announcements"), header: "Announcements", transitionDuration: Duration(milliseconds: 300));
           },
-          icon: Image.asset(
-            'assets/icons/announcement.png',
-            width: 18,
-            cacheWidth: 18,
+          icon: LucideIconWidget(
+            icon: LucideIcons.bell,
+            color: AppColors.secondary,
+            size: 16,
           ),
         ),
       ],
@@ -40,7 +41,11 @@ class MyAppBar extends StatelessWidget {
         onPressed: () {
           print('logout');
         },
-        icon: Image.asset('assets/icons/logout.png', cacheWidth: 20, width: 20),
+        icon: LucideIconWidget(
+          icon: LucideIcons.chevronLeft,
+          color: AppColors.secondary,
+          size: 17,
+        ),
       ),
     );
   }

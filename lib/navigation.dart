@@ -1,7 +1,7 @@
-import 'package:diacare360/screens/diet.dart';
+import 'package:diacare360/screens/auth.dart';
+import 'package:diacare360/screens/dashboard.dart';
 import 'package:diacare360/screens/medicine.dart';
 import 'package:diacare360/screens/settings.dart';
-import 'package:diacare360/screens/vitals.dart';
 import 'package:flutter/material.dart';
 
 class Navigation extends StatefulWidget {
@@ -11,42 +11,44 @@ class Navigation extends StatefulWidget {
   State<Navigation> createState() => _NavigationState();
 }
 
+int _currentIndex = 0;
+
+List<Widget> _buildScreens = [
+  Dashboard(),
+  Auth(),
+  Medicine(),
+  Dashboard(),
+  Settings(),
+];
+
+final List<String> _icons = [
+  'assets/navbar/home.png',
+  'assets/navbar/health.png',
+  'assets/navbar/diet.png',
+  'assets/navbar/medicine.png',
+  'assets/navbar/settings.png',
+];
+
+final List<String> _selectedIcons = [
+  'assets/navbar/home_selected.png',
+  'assets/navbar/home_selected.png',
+  'assets/navbar/home_selected.png',
+  'assets/navbar/home_selected.png',
+  'assets/navbar/home_selected.png',
+];
+
 class _NavigationState extends State<Navigation> {
-  int _selectedIndex = 0;
-
-  final List<Widget> _currentPage = [
-    Vitals(),
-    Medicine(),
-    Diet(),
-    Settings(),
-    Settings(),
-  ];
-
-  final List<String> _icons = [
-    'assets/icons/navbar/home.png',
-    'assets/icons/navbar/health.png',
-    'assets/icons/navbar/diet.png',
-    'assets/icons/navbar/medicine.png',
-    'assets/icons/navbar/settings.png',
-  ];
-
-  final List<String> _selectedIcons = [
-    'assets/icons/navbar/home_selected.png',
-    'assets/icons/navbar/home_selected.png',
-    'assets/icons/navbar/home_selected.png',
-    'assets/icons/navbar/home_selected.png',
-    'assets/icons/navbar/home_selected.png',
-  ];
-
-  void _onItemTapped(int index) => setState(() {
-    _selectedIndex = index;
-  });
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: _buildScreens[_currentIndex],
       bottomNavigationBar: bottomNavBar(),
-      body: _currentPage[_selectedIndex],
     );
   }
 
@@ -71,19 +73,19 @@ class _NavigationState extends State<Navigation> {
           ),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            currentIndex: _selectedIndex,
+            currentIndex: _currentIndex,
             onTap: _onItemTapped,
-            backgroundColor: Color(0xff0F0F0F),
+            backgroundColor: Color(0xff202020),
             showSelectedLabels: false,
             showUnselectedLabels: false,
             items: List.generate(
               _icons.length,
               (index) => BottomNavigationBarItem(
                 icon: Image.asset(
-                  (index == _selectedIndex)
+                  (index == _currentIndex)
                       ? _selectedIcons[index]
                       : _icons[index],
-                  key: ValueKey(_selectedIndex),
+                  key: ValueKey(_currentIndex),
                   width: 16,
                   cacheWidth: 16,
                 ),

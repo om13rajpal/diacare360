@@ -1,8 +1,8 @@
-import 'package:diacare360/screens/login.dart';
-import 'package:flutter/material.dart';
+import 'package:diacare360/navigation.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
 
 void main() {
-  runApp(const DiaCare360());
+  runApp(DiaCare360());
 }
 
 class DiaCare360 extends StatelessWidget {
@@ -10,17 +10,11 @@ class DiaCare360 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ShadcnApp(
       debugShowCheckedModeBanner: false,
-      title: 'DiaCare360',
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Poppins',
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primaryColor: Color(0xFF242424),
-        scaffoldBackgroundColor: Color(0xFFF2F0EF),
-      ),
-      home: Login(),
+      title: 'DiaCare 360',
+      theme: ThemeData(colorScheme: ColorSchemes.darkNeutral(), radius: 0.5),
+      home: Navigation(),
     );
   }
 }
