@@ -1,5 +1,6 @@
-import 'package:diacare360/screens/auth.dart';
 import 'package:diacare360/screens/dashboard.dart';
+import 'package:diacare360/screens/diet.dart';
+import 'package:diacare360/screens/health.dart';
 import 'package:diacare360/screens/medicine.dart';
 import 'package:diacare360/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +16,9 @@ int _currentIndex = 0;
 
 List<Widget> _buildScreens = [
   Dashboard(),
-  Auth(),
+  Health(),
   Medicine(),
-  Dashboard(),
+  Diet(),
   Settings(),
 ];
 

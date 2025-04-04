@@ -1,12 +1,8 @@
-import 'dart:convert';
-import 'dart:developer';
-
 import 'package:diacare360/utils/input&buttons/button.dart';
 import 'package:diacare360/utils/input&buttons/input.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:wolt_modal_sheet/wolt_modal_sheet.dart';
-import 'package:http/http.dart' as http;
 
 SliverWoltModalSheetPage userDetails(
   BuildContext context,
