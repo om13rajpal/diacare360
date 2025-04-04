@@ -1,6 +1,7 @@
 import 'package:diacare360/utils/appbar.dart';
 import 'package:diacare360/utils/text/segment.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class Health extends StatelessWidget {
   const Health({super.key});
@@ -22,8 +23,31 @@ class Health extends StatelessWidget {
                     height: 130,
                     width: 130,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Color(0xFF202020),
                       borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      spacing: 5,
+                      children: [
+                        CircularPercentIndicator(
+                          radius: 45,
+                          circularStrokeCap: CircularStrokeCap.round,
+                          lineWidth: 10,
+                          backgroundColor: Color(0xFF303030),
+                          percent: 0.4,
+                          progressColor: Color.fromARGB(255, 104, 104, 104),
+                        ),
+                        Text(
+                          '7210 / 10000',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFFB3B3B3),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(width: 10),
@@ -34,14 +58,14 @@ class Health extends StatelessWidget {
                         Container(
                           height: 60,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Color(0xFF303030),
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
                         Container(
                           height: 60,
                           decoration: BoxDecoration(
-                            color: Colors.grey,
+                            color: Color(0xFF303030),
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
@@ -68,7 +92,7 @@ class Health extends StatelessWidget {
                     height: 100,
                     width: 75,
                     decoration: BoxDecoration(
-                      color: Colors.grey,
+                      color: Color(0xFF303030),
                       borderRadius: BorderRadius.circular(12),
                     ),
                   );
@@ -86,7 +110,7 @@ class Health extends StatelessWidget {
                 height: 150,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.grey,
+                  color: Color(0xFF303030),
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),

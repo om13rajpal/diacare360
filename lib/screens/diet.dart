@@ -64,7 +64,7 @@ class Diet extends StatelessWidget {
                 height: 142,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Color(0xFFD9D9D9),
+                  color: Color(0xFF303030),
                 ),
               ),
             ),
@@ -110,7 +110,7 @@ class Diet extends StatelessWidget {
                       width: 80,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Color(0xFFD9D9D9),
+                        color: Color(0xFF303030),
                       ),
                     ),
                   );
